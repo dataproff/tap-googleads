@@ -35,6 +35,18 @@
                             },
                             "impressions": {
                                 "type": "string"
+                            },
+                            "all_conversions_value_by_conversion_date": {
+                                "type": "string"
+                            },
+                            "all_conversions_value": {
+                                "type": "string"
+                            },
+                            "conversions_by_conversion_date": {
+                                "type": "number"
+                            },
+                            "conversions": {
+                                "type": "number"
                             }
                         }
                     },
