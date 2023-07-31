@@ -250,9 +250,9 @@ class CampaignPerformance(ReportsStream):
         metrics.ctr, 
         metrics.average_cpc, 
         metrics.cost_micros, 
-        metrics.all_conversions_value_by_conversion_date, 
-        metrics.all_conversions_value, 
-        metrics.conversions_by_conversion_date, 
+        metrics.conversions_value_by_conversion_date, 
+        metrics.conversions_value, 
+        metrics.conversions_value_by_conversion_date, 
         metrics.conversions
     FROM campaign WHERE segments.date >= {self.start_date} and segments.date <= {self.end_date}
     """
