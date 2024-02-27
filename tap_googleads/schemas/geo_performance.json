@@ -41,7 +41,7 @@
         "date": {
           "type": "string"
         },
-        "geo_target_region": {
+        "geoTargetRegion": {
           "type": "string"
         }
       }
