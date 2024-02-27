@@ -40,6 +40,9 @@
       "properties": {
         "date": {
           "type": "string"
+        },
+        "geo_target_region": {
+          "type": "string"
         }
       }
     },
