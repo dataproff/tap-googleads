@@ -346,6 +346,7 @@ class GeoPerformance(ReportsStream):
         metrics.cost_micros,
         metrics.impressions, 
         metrics.conversions,
+        segments.geo_target_region,
         geographic_view.location_type,
         geographic_view.country_criterion_id
     FROM geographic_view 
