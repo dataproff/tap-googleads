@@ -21,7 +21,17 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class GoogleAdsStream(RESTStream):
     """GoogleAds stream class."""
 
-    url_base = "https://googleads.googleapis.com/v14"
+    @property
+    def gaql(self):
+        raise NotImplementedError
+
+    def prepare_request_payload(
+            self, context: Optional[dict], next_page_token: Optional[Any]
+    ) -> Optional[dict]:
+        self.logger.info("custom prepare_request_payload")
+        return {"query": self.gaql} if self.rest_method == 'POST' else None
+
+    url_base = "https://googleads.googleapis.com/v17"
 
     records_jsonpath = "$[*]"  # Or override `parse_response`.
     next_page_token_jsonpath = "$.nextPageToken"  # Or override `get_next_page_token`.
@@ -30,6 +40,7 @@ class GoogleAdsStream(RESTStream):
     _end_date = "'" + datetime.now().strftime("%Y-%m-%d") + "'"
     _start_date = datetime.now() - timedelta(days=91)
     _start_date = "'" + _start_date.strftime("%Y-%m-%d") + "'"
+
 
     @property
     @cached

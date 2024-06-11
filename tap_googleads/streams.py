@@ -47,8 +47,6 @@ class CustomerHierarchyStream(GoogleAdsStream):
         # Paramas
         path = f"/customers/{self.config.get('customer_id')}"
         path = path + "/googleAds:search"
-        path = path + "?pageSize=10000"
-        path = path + f"&query={self.gaql}"
         return path
 
     @property
@@ -123,8 +121,6 @@ class GeotargetsStream(GoogleAdsStream):
         # Paramas
         path = f"/customers/{self.config.get('customer_id')}"
         path = path + "/googleAds:search"
-        path = path + "?pageSize=10000"
-        path = path + f"&query={self.gaql}"
         return path
 
     gaql = """
@@ -143,16 +139,10 @@ class ReportsStream(GoogleAdsStream):
     parent_stream_type = CustomerHierarchyStream
 
     @property
-    def gaql(self):
-        raise NotImplementedError
-
-    @property
     def path(self):
         # Paramas
         path = f"/customers/{self.config.get('customer_id')}"
         path = path + "/googleAds:search"
-        path = path + "?pageSize=10000"
-        path = path + f"&query={self.gaql}"
         return path
 
 
